@@ -1,0 +1,42 @@
+package com;
+
+public class Vehicle {
+	String vehicleNumber;
+	String vehicleType;
+	String model;
+	double serviceCost;
+	public Vehicle(String vehicleNumber, String vehicleType, String model, double serviceCost) {
+		super();
+		this.vehicleNumber = vehicleNumber;
+		this.vehicleType = vehicleType;
+		this.model = model;
+		this.serviceCost = serviceCost;
+	}
+	public String getVehicleNumber() {
+		return vehicleNumber;
+	}
+	public void setVehicleNumber(String vehicleNumber) {
+		this.vehicleNumber = vehicleNumber;
+	}
+	public String getVehicleType() {
+		return vehicleType;
+	}
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	public String getModel() {
+		return model;
+	}
+	public void setModel(String model) {
+		this.model = model;
+	}
+	public double getServiceCost() {
+		return serviceCost;
+	}
+	public void setServiceCost(double serviceCost) {
+		this.serviceCost = serviceCost;
+	}
+
+	
+
+}
