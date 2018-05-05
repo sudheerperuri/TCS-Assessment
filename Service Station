@@ -1,0 +1,81 @@
+package com;
+
+public class ServiceStation {
+
+	Vehicle[] vehicleDetails = new Vehicle[100];
+
+	public Vehicle checkVehicleStatus(String vehicleNumber) {
+		Vehicle v1=null;
+
+		try {
+			for (Vehicle v : vehicleDetails) {
+				if (vehicleNumber.equals(v.getVehicleNumber())) {
+					v1 = v;
+
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if (v1 != null)
+			return v1;
+		else
+			return null;
+	}
+
+	public boolean checkVehicle(String vehicleNumber) {
+		boolean c = false;
+
+		try {
+			for (Vehicle v : vehicleDetails) {
+				if (vehicleNumber.equals(v.getVehicleNumber())) {
+					c = true;
+
+				}
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
+
+	}
+
+	public Vehicle[] getVehiclesOfType(String vehicleType) {
+		Vehicle[] c = new Vehicle[20];
+		try {
+			for (Vehicle v : vehicleDetails) {
+				for (int i = 0; i < vehicleDetails.length; i++)
+					if (vehicleType.equals(v.getVehicleType())) {
+						c[i] = v;
+					}
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
+	}
+
+	public void getDiscountOnServiceCost(int percent, double limit) {
+		double updatedServiceCost = 0;
+		double a = 0;
+		try {
+			a = (limit / 100) * percent;
+			updatedServiceCost = limit - a;
+			System.out.println(updatedServiceCost);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+	}
+}
