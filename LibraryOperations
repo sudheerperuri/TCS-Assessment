@@ -1,0 +1,93 @@
+package com;
+
+import java.util.*;
+
+public class LibraryOperations {
+
+	List<Book> book = new ArrayList<Book>();
+
+	public int addBook(Book b1) {
+		int c = 0;
+			try {
+				for (Book b : book) {
+					if (b.getId() == b1.getId()) {
+						c++;
+					}
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		if (c > 0) {
+			return 0;
+		} else {
+			book.add(b1);
+			return book.size();
+		}
+	}
+
+	public int getBook(String title) {
+		int c = 0;
+		try {
+			for (Book b : book) {
+				if (b.getTitle().equalsIgnoreCase(title)) {
+					c++;
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
+
+	}
+
+	public int removeBook(int ISBN) {
+		int size = 0;
+		try {
+			for (Book b : book) {
+				if (b.getISBN() == ISBN) {
+					book.remove(b);
+					return book.size();
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return size;
+	}
+
+	public boolean isAvailable(String title) {
+		boolean a = false;
+		try {
+			for (Book b : book) {
+				if (b.getTitle().equals(title)) {
+					a = true;
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return a;
+
+	}
+
+	public int booksWithSameGenre(String genre) {
+		int c = 0;
+		try {
+			for (Book b : book) {
+				if (b.getGenre().equals(genre)) {
+					c = c + 1;
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return c;
+	}
+}
