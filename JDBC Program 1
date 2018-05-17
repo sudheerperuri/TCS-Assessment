@@ -1,0 +1,47 @@
+package com;
+
+import java.sql.*;
+
+public class InsertDetails {
+	public static void main(String[] args) {
+		Connection con = null;
+			
+			
+				try {
+					//Registering Driver
+					
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+					
+					//Get the Connection
+					
+					con = DriverManager.getConnection("jdbc:oracle:thin:@intvmoradb04:1521:ORAJAVADB","TVM1718_TVM41_TJA222_DEV","tcstvm4041");
+					
+					//Creating Statement
+					
+					Statement s = con.createStatement();
+					
+					//Executing Statement
+
+					s.executeQuery("update student1 set name = 'Jaswanth' where id = 1");
+					
+					
+				} 		catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		catch(SQLException ex){
+			
+		}
+		finally{
+			try {
+				
+				//Close the Connection 			
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+}
